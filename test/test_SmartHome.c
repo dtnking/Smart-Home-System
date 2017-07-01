@@ -1,21 +1,31 @@
 #include "unity.h"
 #include "smarthome.h"
-#include "mock_smarthome.h"
-#include "mock_smarthome.c"
+#include "mock_gpscoordinate.h"
+
+GpsCoordinate coordinateWithinHouseArea = {
+  199,
+  5344,
+};
+
+GpsCoordinate coordinateWithinKitchenArea = {
+  195,
+  5399,
+};
+
+GpsCoordinate coordinateWithinGarageDoorArea = {
+  221,
+  5299,
+};
 
 void setUp(void){}
 
 void tearDown(void){}
 
-void test_smarthome_Turn_Kitchen_light_when_less_than2(void)
+void test_smarthome_Turn_Kitchen_light_within_Kitchen_Area(void)
 {
-	int x;
-	GpsCoordinate gps;
-	gps.x=196;
-	gps.y=5400;
-	
-	getGpsCoordinate_ExpectAndReturn(gps);
-	turn_Expect(KITCHEN_LIGHT, ON);
+
+	getGpsCoordinate_ExpectAndReturn(coordinateWithinKitchenArea);
+	turn_Expect(KITCHEN_LIGHT,ON);
 	
 	doSmartThings();	
 }

@@ -1,5 +1,6 @@
 #include "smarthome.h"
 #include <math.h>
+#include "gpscoordinate.h"
 
 GpsCoordinate house ={
 	200,
