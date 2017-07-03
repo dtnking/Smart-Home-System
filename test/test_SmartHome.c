@@ -8,7 +8,7 @@ GpsCoordinate coordinateWithinHouseArea = {
 };
 
 GpsCoordinate coordinateWithinKitchenArea = {
-  195,
+  196,
   5399,
 };
 
@@ -30,3 +30,21 @@ void test_smarthome_Turn_Kitchen_light_within_Kitchen_Area(void)
 	doSmartThings();	
 }
 
+void test_smarthome_Turn_Kitchen_light_within_GarageDoor_Area(void)
+{
+
+	getGpsCoordinate_ExpectAndReturn(coordinateWithinGarageDoorArea);
+	turn_Expect(GARAGE_DOOR,ON);
+	
+	doSmartThings();	
+}
+
+void test_smarthome_Turn_Kitchen_light_within_House_Area(void)
+{
+
+	getGpsCoordinate_ExpectAndReturn(coordinateWithinHouseArea);
+	turn_Expect(AIRCOND,ON);
+	turn_Expect(WATER_HEATER,ON);
+	
+	doSmartThings();	
+}

@@ -29,17 +29,18 @@ int sqr(float x){
 void doSmartThings(){
 	GpsCoordinate Gps;
 	Gps=getGpsCoordinate();
-	if(sqr(sqrt(Gps.x-house.x)+sqrt(Gps.y-house.y))<=2000){
-		turn(AIRCOND,ON);
-		turn(WATER_HEATER,ON);
+	
+	if(sqrt(sqr(Gps.x-kitchen.x)+sqr(Gps.y-kitchen.y))<=2){
+		turn(KITCHEN_LIGHT,ON);
 	}
 	
-	else if(sqr(sqrt(Gps.x-outside_GarageDoor.x)+sqrt(Gps.y-outside_GarageDoor.y))<=5){
+	else if(sqrt(sqr(Gps.x-outside_GarageDoor.x)+sqr(Gps.y-outside_GarageDoor.y))<=5){
 		turn(GARAGE_DOOR,ON);
 	}
 	
-	else if(sqr(sqrt(Gps.x-kitchen.x)+sqrt(Gps.y-kitchen.y))<=5){
-		turn(KITCHEN_LIGHT,ON);
+	else if(sqrt(sqr(Gps.x-house.x)+sqr(Gps.y-house.y))<=2000){
+		turn(AIRCOND,ON);
+		turn(WATER_HEATER,ON);
 	}
 	
 }

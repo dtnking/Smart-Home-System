@@ -17,6 +17,9 @@
 #  :output: MyApp.out
 #  :use_assembly: FALSE
 
+:module_generator:
+    :naming: bumpy
+
 :environment:
 
 :extension:
