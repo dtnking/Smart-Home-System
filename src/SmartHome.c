@@ -34,6 +34,10 @@ void doSmartThings(){
 		turn(KITCHEN_LIGHT,ON);
 	}
 	
+	else if(Gps.x==GarageDoor.x&&Gps.y==GarageDoor.y){
+		turn(GARAGE_DOOR,OFF);
+	}
+	
 	else if(sqrt(sqr(Gps.x-outside_GarageDoor.x)+sqr(Gps.y-outside_GarageDoor.y))<=5){
 		turn(GARAGE_DOOR,ON);
 	}
@@ -42,5 +46,7 @@ void doSmartThings(){
 		turn(AIRCOND,ON);
 		turn(WATER_HEATER,ON);
 	}
+	
+	
 	
 }
